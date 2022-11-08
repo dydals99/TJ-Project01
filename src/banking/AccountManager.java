@@ -22,21 +22,21 @@ class AccountManager {
 		Scanner scan = new Scanner(System.in);
 		int inter; //정수형 입력값을 받을 변수
 		
-		System.out.println("1.보통 계좌");
-		System.out.println("2.신용 신뢰계좌");
+		System.out.println("[1.보통 계좌]");
+		System.out.println("[2.신용 신뢰계좌]");
 		int choice = scan.nextInt();
 		scan.nextLine(); // 엔터키 제거용
 		
-		System.out.print("계좌번호입력 : ");
+		System.out.print("[계좌번호입력] : ");
 		String accountNum = scan.nextLine();
 		
-		System.out.print("이름입력 : ");
+		System.out.print("[이름입력] : ");
 		String name = scan.nextLine();
 		
-		System.out.print("잔고 : ");
+		System.out.print("[잔고] : ");
 		int balance = Integer.parseInt(scan.nextLine());
 		
-		System.out.print("기본이자(정수입력) : ");
+		System.out.print("[기본이자%(정수입력)] : ");
 		inter = scan.nextInt();
 		scan.nextLine();
 		Account acc = null;
@@ -44,14 +44,15 @@ class AccountManager {
 			if (choice == 1) {
 				
 			acc = new NormalAccount(accountNum, name, balance, inter);
-				// 기존에 컬렉션에 저장되어있던값을 조건으로 true라면 입력한값을 저장
 			}
 			// 신용계좌 정보 입력
 			else if (choice == 2) {
 				String credit;
-				System.out.printf("등급선택 : ");
+				System.out.printf("[등급선택] : ");
 				credit = scan.nextLine();
+					//등급 a,b,c를 제외한 문자혹은 숫자가 들어갈경우 예외처리를 하는 조건
 					if (!("A".equalsIgnoreCase(credit) || "B".equalsIgnoreCase(credit) || "C".equalsIgnoreCase(credit))) {
+						//사용자 정의 예외클래스객체
 						MenuSelectException ex = new MenuSelectException();
 						throw ex;
 					}
@@ -92,7 +93,7 @@ class AccountManager {
 		boolean accFind = false;
 		
 		System.out.println("계좌번호와 입금할 금액을 입력하세요.");
-		System.out.print("계좌번호 : ");
+		System.out.print("[계좌번호] : ");
 		String search = scan.nextLine();
 		try {
 //			컬렉션에 크기만큼 Account 타입의 객체 am에 대입
@@ -131,17 +132,18 @@ class AccountManager {
 		Scanner scan = new Scanner(System.in);
 		boolean accFind = false;
 		System.out.println("계좌번호와 출금할 금액을 입력하세요.");
-		System.out.print("계좌번호 : ");
+		System.out.print("[계좌번호] : ");
 		String search = scan.nextLine();
 		int total = 0;
 		try {
-//			for (int i = 0; i < index; i++) {
+			//컬렉션에 크기만큼 Account 타입의 객체 am에 대입
 			for(Account ac : acc) {	
 				if (search.equals(ac.getAccount())) {
 					
 					System.out.print("출금액 : ");
 					int with = Integer.parseInt(scan.nextLine());
 					total = ac.getBalance();
+						//0보다 작거나 1000원으로 나누어 0이되지 않는조건
 						if(!(with > 0 && (with % 1000)==0)) {
 							
 							System.out.println("정확값을 입력해주세요");
@@ -149,7 +151,7 @@ class AccountManager {
 						}
 						if(total<with) {
 							System.out.println("==출금하려는 금액이 잔금보다큽니다==");
-							System.out.println("===전액 출금하시겠습니다까 Y,N===");
+							System.out.println("===[Y]전액출금,[N]취소===");
 							String YN = scan.nextLine();
 							if("Y".equalsIgnoreCase(YN)) {
 								System.out.println("전액출금하겠습니다.");
@@ -236,6 +238,7 @@ class AccountManager {
 			System.out.println("자동저장시 오류발생1");
 		}
 	}
+	//쓰레드 실행이 txt파일로 저장해줄 메서드
 	public void saveThread() {
 		try {
 			PrintWriter out = new PrintWriter(

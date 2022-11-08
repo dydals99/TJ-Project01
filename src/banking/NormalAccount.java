@@ -17,7 +17,7 @@ public class NormalAccount extends Account {
 		System.out.println("====계좌정보출력====");
 		//부모쪽에 메서드를 호출할때는 super.를 사용해서 호출해준다.
 		super.showAccInfo();
-		System.out.println("기본이자>" + inter + "%");
+		System.out.println("기본이자 :" + inter + "%");
 	}
 	//부모클래스에 setBalance를 오버라이딩을 통해 재정의한 기능을 가진다.
 	@Override

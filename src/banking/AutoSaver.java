@@ -11,12 +11,12 @@ public class AutoSaver extends Thread {
 	@Override
 	public void run() {
 		
+		System.out.println("=====5초마다 자동저장합니다=====");
 		while(true) {
 			try {
-				System.out.println("=====5초마다 자동저장합니다=====");
 				acm.saveThread();
 				sleep(5000);
-				System.out.println("=====Txt파일 생성됨=====");
+//				System.out.println("=====Txt파일 생성됨=====");
 			} 
 			catch (Exception e) {
 				//e.printStackTrace();

@@ -8,17 +8,19 @@ import java.util.Scanner;
 public class BankingSystemMain extends Thread{
 	// 메뉴출력
 	static void showMenu() {
-		System.out.println("===================Menu===================");
-		System.out.print("1.계좌계설 ");
-		System.out.print("2.입 금 ");
-		System.out.print("3.출 금 ");
-		System.out.println("4.계좌정보출력 ");
-		System.out.print("5.저장옵션 ");
-		System.out.println("6.프로그램종료 ");
+		System.out.println("=====================Menu=====================");
+		System.out.print("[1.계좌계설] ");
+		System.out.print("[2.입 금] ");
+		System.out.print("[3.출 금] ");
+		System.out.println("[4.계좌정보출력] ");
+		System.out.print("[5.저장옵션] ");
+		System.out.println("[6.프로그램종료] ");
 //		System.out.print("6.퍼즐게임 ");
-		System.out.println("==========================================");
+		System.out.println("==============================================");
 	}
 	public static void main(String[] args) {
+		
+		System.out.println("1차프로젝트(학원)");
 		
 		AccountManager ac = new AccountManager();
 		Scanner scan = new Scanner(System.in);

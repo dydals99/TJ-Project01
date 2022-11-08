@@ -20,7 +20,7 @@ public class HighCreditAccount extends Account {
 		System.out.println("====계좌정보출력====");
 	
 		super.showAccInfo();
-		System.out.println("기본이자>" + inter + "%");
+		System.out.println("기본이자 : " + inter + "%");
 		System.out.println("신용등급 A,B,C :" + credit);
 	}
 	//부모클래스에 setBalance를 오버라이딩을 통해 재정의한 기능을 가진다.
